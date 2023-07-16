@@ -5,13 +5,21 @@
 #include <string>
 using namespace std;
 
-int ctr = 1;
+// int ctr = 1;
+// void printNos(int N)
+// {
+//     if (ctr > N)
+//         return;
+//     cout << ctr++ << " ";
+//     printNos(N);
+// }
+
 void printNos(int N)
 {
-    if (ctr > N)
+    if (N == 0)
         return;
-    cout << ctr++ << " ";
-    printNos(N);
+    printNos(N - 1);
+    cout << N << " ";
 }
 int main()
 {
