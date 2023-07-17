@@ -116,6 +116,26 @@ struct LinkedList
     {
         this->head = this->rList(this->head);
     }
+
+    void deleteKey(int key)
+    {
+        node *temp, *temp2;
+        temp = head;
+        if (searchElementIterative(key) == -1)
+        {
+            cout << "This element is not part of linked list " << endl;
+            return;
+        }
+        while (temp->next->data != key)
+            temp = temp->next;
+
+        temp2 = temp->next;
+        temp->next = temp2->next;
+        delete temp2;
+    }
+    void deletePosition(int position)
+    {
+    }
 };
 
 int main()
@@ -133,6 +153,9 @@ int main()
     ll.addElementBack(11);
     ll.lengthRecursivly();
     ll.reverseList();
+    ll.printElements();
+    // ll.deleteKey(31);
+    // cout << "After deleting 31" << endl;
     ll.printElements();
     return 0;
 }
