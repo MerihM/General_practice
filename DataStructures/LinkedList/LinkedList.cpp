@@ -16,12 +16,6 @@ struct LinkedList
 {
     node *head = NULL;
 
-    node *returnHead()
-    {
-        node *temp = head;
-        return temp;
-    }
-
     void addElement(int data)
     {
         if (head == NULL)
@@ -118,6 +112,20 @@ struct LinkedList
         }
         lengthRecursivly(ctr + 1, temp->next);
     }
+
+    node *rList(node *head)
+    {
+        if (head == NULL || head->next == NULL)
+            return head;
+        node *rest = rList(head->next);
+        head->next->next = head;
+        head->next = NULL;
+        return rest;
+    }
+    void reverseList()
+    {
+        this->head = this->rList(this->head);
+    }
 };
 
 int main()
@@ -134,5 +142,7 @@ int main()
     // ll.lenghtIterativly();
     ll.addElementBack(11);
     ll.lengthRecursivly();
+    ll.reverseList();
+    ll.printElements();
     return 0;
 }
