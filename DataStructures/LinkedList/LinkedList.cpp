@@ -78,7 +78,7 @@ struct LinkedList
         return searchElementRecursivly(data, Node, ctr + 1);
     }
 
-    void lenghtIterativly()
+    int lenghtIterativly()
     {
         int ctr = 0;
         node *temp = head;
@@ -87,20 +87,19 @@ struct LinkedList
             ctr++;
             temp = temp->next;
         }
-        cout << "Length of linked list is " << ctr << endl;
+        return ctr;
     }
 
-    void lengthRecursivly(int ctr = 0, node *temp = NULL)
+    int lengthRecursivly(int ctr = 0, node *temp = NULL)
     {
         if (temp == NULL && ctr == 0)
             temp = head;
 
         if (temp == NULL)
         {
-            cout << "Length of linked list is " << ctr << endl;
-            return;
+            return ctr;
         }
-        lengthRecursivly(ctr + 1, temp->next);
+        return lengthRecursivly(ctr + 1, temp->next);
     }
 
     node *rList(node *head)
@@ -135,6 +134,25 @@ struct LinkedList
     }
     void deletePosition(int position)
     {
+        int ctr = 0;
+        node *temp = head, *temp2;
+
+        if (lenghtIterativly() < position)
+        {
+            cout << "There is no element in that position " << endl;
+            return;
+        }
+        for (int i = 0; i < position - 2; i++)
+        {
+            if (temp->next != NULL)
+            {
+                temp = temp->next;
+                ctr++;
+            }
+        }
+        temp2 = temp->next;
+        temp->next = temp2->next;
+        delete temp2;
     }
 };
 
@@ -154,8 +172,10 @@ int main()
     ll.lengthRecursivly();
     ll.reverseList();
     ll.printElements();
-    // ll.deleteKey(31);
-    // cout << "After deleting 31" << endl;
-    ll.printElements();
+    // ll.deleteKey(1);
+    // cout << "After deleting 1" << endl;
+    // ll.deletePosition(5);
+    // cout << "Aftere deleting on position 5" << endl;
+    // ll.printElements();
     return 0;
 }
