@@ -51,41 +51,31 @@ struct LinkedList
         }
     }
 
-    void searchElementIterative(int data)
+    int searchElementIterative(int data)
     {
         node *temp = head;
         int ctr = 0;
         while (temp->next != NULL)
         {
             if (temp->data == data)
-            {
-                cout << "Element " << data << " is located at position " << ctr + 1 << " in linked list" << endl;
-                return;
-            }
+                return ++ctr;
             ctr++;
             temp = temp->next;
         }
-        if (temp->next == NULL)
-            cout << "Element " << data << " is not in the linked list!" << endl;
+        return -1;
     }
 
-    void searchElementRecursivly(int data, node *Node = NULL, int ctr = 0)
+    int searchElementRecursivly(int data, node *Node = NULL, int ctr = 0)
     {
         if (Node == NULL)
             Node = head;
 
         if (Node->next == NULL && Node->data != data)
-        {
-            cout << "Element " << data << " is not in the linked list" << endl;
-            return;
-        }
+            return -1;
         if (Node->data == data)
-        {
-            cout << "Element " << data << " is located at position " << ctr + 1 << " in linked list" << endl;
-            return;
-        }
+            return ++ctr;
         Node = Node->next;
-        searchElementRecursivly(data, Node, ctr + 1);
+        return searchElementRecursivly(data, Node, ctr + 1);
     }
 
     void lenghtIterativly()
@@ -137,8 +127,8 @@ int main()
     ll.addElementBack(3);
     ll.addElementBack(7);
     ll.printElements();
-    // ll.searchElementIterative(8);
-    // ll.searchElementRecursivly(6);
+    // cout << "\t" << ll.searchElementIterative(10) << endl;
+    // cout << "\t" << ll.searchElementRecursivly(5) << endl;
     // ll.lenghtIterativly();
     ll.addElementBack(11);
     ll.lengthRecursivly();
