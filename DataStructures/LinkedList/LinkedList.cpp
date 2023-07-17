@@ -154,6 +154,24 @@ struct LinkedList
         temp->next = temp2->next;
         delete temp2;
     }
+
+    // method to get Nth node in ll
+    void getNth(int pos)
+    {
+
+        if (lenghtIterativly() < pos)
+        {
+            cout << "There is no element in that position " << endl;
+            return;
+        }
+        node *temp = head;
+        for (int i = 0; i < pos - 1; i++)
+            temp = temp->next;
+        cout << "\tAt position " << pos << " is node with value " << temp->data << endl;
+    }
+    // method to get Nth node from the end of ll
+
+    // method to delete ll
 };
 
 int main()
@@ -163,8 +181,8 @@ int main()
     ll.addElement(1);
     ll.addElement(6);
     ll.addElementBack(3);
-    ll.addElementBack(7);
-    ll.printElements();
+    ll.addElementBack(6);
+    // ll.printElements();
     // cout << "\t" << ll.searchElementIterative(10) << endl;
     // cout << "\t" << ll.searchElementRecursivly(5) << endl;
     // ll.lenghtIterativly();
@@ -177,5 +195,6 @@ int main()
     // ll.deletePosition(5);
     // cout << "Aftere deleting on position 5" << endl;
     // ll.printElements();
+    ll.getNth(4);
     return 0;
 }
