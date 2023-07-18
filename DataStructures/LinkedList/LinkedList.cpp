@@ -172,6 +172,20 @@ struct LinkedList
     // method to get Nth node from the end of ll
 
     // method to delete ll
+
+    void iterReverse()
+    {
+        node *curr, *next = NULL, *prev = NULL;
+        curr = head;
+        while (curr != NULL)
+        {
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
 };
 
 int main()
@@ -188,13 +202,16 @@ int main()
     // ll.lenghtIterativly();
     ll.addElementBack(11);
     ll.lengthRecursivly();
-    ll.reverseList();
+    // ll.reverseList();
     ll.printElements();
     // ll.deleteKey(1);
     // cout << "After deleting 1" << endl;
     // ll.deletePosition(5);
     // cout << "Aftere deleting on position 5" << endl;
     // ll.printElements();
-    ll.getNth(4);
+    // ll.getNth(4);
+    cout << "-----------------------------------------------------------------------------\n";
+    ll.iterReverse();
+    ll.printElements();
     return 0;
 }
