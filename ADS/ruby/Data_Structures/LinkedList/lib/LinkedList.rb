@@ -45,6 +45,11 @@ class SLL
         ctr
     end
 
+    def sizeR(node = @head, ctr = 0)
+        return ctr if node.nil?
+        sizeR(node.next, ctr+=1)
+    end
+
     private
 
     def tail(node = @head)
@@ -60,4 +65,5 @@ sll.insertEnd(3)
 sll.insertFront(9)
 sll.insertEnd(1)
 # sll.printList
-# p "Size of linked list is #{sll.size}"
+# puts "Size of linked list is #{sll.sizeR}"
+# puts "Size of linked list is #{sll.size}"
