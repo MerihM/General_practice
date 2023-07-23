@@ -34,6 +34,17 @@ class SLL
        @head.nil? ? @head = Node.new(data) : tail.next = Node.new(data)
     end
 
+
+    def size 
+        tempNode = @head
+        ctr = 0
+        until tempNode.nil?
+            ctr += 1
+            tempNode = tempNode.next
+        end
+        ctr
+    end
+
     private
 
     def tail(node = @head)
@@ -48,4 +59,5 @@ sll.insertEnd(2)
 sll.insertEnd(3)
 sll.insertFront(9)
 sll.insertEnd(1)
-sll.printList
+# sll.printList
+# p "Size of linked list is #{sll.size}"
