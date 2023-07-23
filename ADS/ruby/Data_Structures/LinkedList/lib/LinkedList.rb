@@ -50,6 +50,31 @@ class SLL
         sizeR(node.next, ctr+=1)
     end
 
+    def searchData(data)
+        tempNode = @head
+        ctr = 0
+        until tempNode.nil?
+            ctr += 1
+            if tempNode.data == data
+                return "Node with data #{data} is located at position #{ctr} in linked list"
+            end
+            tempNode = tempNode.next
+        end
+        "Node with data #{data} is not part of the linked list"
+    end
+
+    def searchIndex(index)
+
+        return "Incorrect index" if index > size || index < 1
+        ctr = 1
+        tempNode = @head
+        while ctr != index
+            tempNode = tempNode.next
+            ctr += 1
+        end
+        return "At index #{index} is node with data #{tempNode.data}"
+    end
+
     private
 
     def tail(node = @head)
@@ -64,6 +89,9 @@ sll.insertEnd(2)
 sll.insertEnd(3)
 sll.insertFront(9)
 sll.insertEnd(1)
-# sll.printList
+sll.insertEnd(11)
+sll.printList
+# puts sll.searchData(5)
+# puts sll.searchIndex(1)
 # puts "Size of linked list is #{sll.sizeR}"
 # puts "Size of linked list is #{sll.size}"
