@@ -63,6 +63,12 @@ class SLL
         "Node with data #{data} is not part of the linked list"
     end
 
+    def recSearchData(data, node = @head, ctr = 1)
+        return "Node with data #{data} is not part of the linked list" if node.nil?
+        return "Node with data #{data} is located at position #{ctr} in linked list" if node.data == data
+        recSearchData(data, node.next, ctr+=1)
+    end
+
     def searchIndex(index)
 
         return "Incorrect index" if index > size || index < 1
@@ -92,6 +98,7 @@ sll.insertEnd(1)
 sll.insertEnd(11)
 sll.printList
 # puts sll.searchData(5)
+# puts sll.recSearchData(11)
 # puts sll.searchIndex(1)
 # puts "Size of linked list is #{sll.sizeR}"
 # puts "Size of linked list is #{sll.size}"
