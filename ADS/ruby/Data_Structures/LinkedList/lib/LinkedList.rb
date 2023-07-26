@@ -71,14 +71,20 @@ class SLL
 
     def searchIndex(index)
 
-        return "Incorrect index" if index > size || index < 1
-        ctr = 1
+        return "Incorrect index" if index > size-1 || index < 0
+        ctr = 0
         tempNode = @head
         while ctr != index
             tempNode = tempNode.next
             ctr += 1
         end
         return "At index #{index} is node with data #{tempNode.data}"
+    end
+
+    def recSearchIndex(index, ctr = 0, node = @head)
+        return "Incorrect index" if index > size-1 || index < 0
+        return "At index #{index} is node with data #{node.data}" if index == ctr
+        recSearchIndex(index, ctr += 1, node.next)
     end
 
     private
@@ -100,5 +106,6 @@ sll.printList
 # puts sll.searchData(5)
 # puts sll.recSearchData(11)
 # puts sll.searchIndex(1)
+puts sll.recSearchIndex(2)
 # puts "Size of linked list is #{sll.sizeR}"
 # puts "Size of linked list is #{sll.size}"
