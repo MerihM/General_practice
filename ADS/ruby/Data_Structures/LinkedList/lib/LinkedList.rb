@@ -34,6 +34,25 @@ class SLL
        @head.nil? ? @head = Node.new(data) : tail.next = Node.new(data)
     end
 
+    def insertAt(data, pos)
+        if pos > size + 1 || pos < 1
+            puts "Error! Incorrect position"
+            return
+        end
+        if pos == 1
+            insertFront(data)
+            return
+        end
+        if pos == size + 1
+            insertEnd(data)
+            return
+        end
+        
+        newNode = Node.new(data)
+        node = findNodeAtPos(pos)
+        newNode.next = node.next
+        node.next = newNode
+    end
 
     def size 
         tempNode = @head
@@ -94,6 +113,18 @@ class SLL
         tail(node.next)
     end
 
+    def findNodeAtPos(pos)
+        node = @head
+        ctr = 1
+        while ctr < pos - 1
+            node = node.next
+            puts "\t#{ctr}"
+            ctr += 1
+        end
+        return node
+    end
+
+
 end
 
 sll = SLL.new
@@ -102,10 +133,12 @@ sll.insertEnd(3)
 sll.insertFront(9)
 sll.insertEnd(1)
 sll.insertEnd(11)
+# sll.printList
+sll.insertAt(5, 1)
 sll.printList
 # puts sll.searchData(5)
 # puts sll.recSearchData(11)
 # puts sll.searchIndex(1)
-puts sll.recSearchIndex(2)
+# puts sll.recSearchIndex(2)
 # puts "Size of linked list is #{sll.sizeR}"
 # puts "Size of linked list is #{sll.size}"
