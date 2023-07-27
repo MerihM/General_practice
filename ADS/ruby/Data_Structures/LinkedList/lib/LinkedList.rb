@@ -106,6 +106,18 @@ class SLL
         recSearchIndex(index, ctr += 1, node.next)
     end
 
+    def reverseIterative
+        currentNode = @head
+        previousNode = nil
+        while !currentNode.nil?
+            nextNode = currentNode.next
+            currentNode.next = previousNode
+            previousNode = currentNode
+            currentNode = nextNode
+        end
+        @head = previousNode
+    end
+
     private
 
     def tail(node = @head)
@@ -135,6 +147,9 @@ sll.insertEnd(1)
 sll.insertEnd(11)
 # sll.printList
 sll.insertAt(5, 1)
+sll.printList
+sll.reverseIterative
+puts
 sll.printList
 # puts sll.searchData(5)
 # puts sll.recSearchData(11)
