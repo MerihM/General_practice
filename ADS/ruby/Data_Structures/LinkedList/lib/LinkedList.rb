@@ -125,19 +125,25 @@ class SLL
     private
 
 
-    def recHelper
+    def recHelper(node)
 
+        return node if node.nil? || node.next.nil?
+
+        rest = recHelper(node.next)
+        node.next.next = node
+        node.next = nil
+        return rest
     end
-    node *rList(node *head)
-    {
-        if (head == NULL || head->next == NULL)
-            return head;
-        node *rest = rList(head->next);
-        head->next->next = head;
-        head->next = NULL;
-        return rest;
-    }
-    
+    # node *rList(node *head)
+    # {
+    #     if (head == NULL || head->next == NULL)
+    #         return head;
+    #     node *rest = rList(head->next);
+    #     head->next->next = head;
+    #     head->next = NULL;
+    #     return rest;
+    # }
+
     def tail(node = @head)
         return node if node.next.nil?
         tail(node.next)
@@ -169,6 +175,9 @@ sll.printList
 sll.reverseIterative
 puts
 sll.printList
+puts
+sll.reverseRec
+puts sll.printList
 # puts sll.searchData(5)
 # puts sll.recSearchData(11)
 # puts sll.searchIndex(1)
