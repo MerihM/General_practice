@@ -118,8 +118,26 @@ class SLL
         @head = previousNode
     end
 
+    def reverseRec     
+        @head = recHelper(@head)
+    end
+
     private
 
+
+    def recHelper
+
+    end
+    node *rList(node *head)
+    {
+        if (head == NULL || head->next == NULL)
+            return head;
+        node *rest = rList(head->next);
+        head->next->next = head;
+        head->next = NULL;
+        return rest;
+    }
+    
     def tail(node = @head)
         return node if node.next.nil?
         tail(node.next)
