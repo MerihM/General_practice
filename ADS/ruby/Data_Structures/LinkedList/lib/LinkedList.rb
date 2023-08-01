@@ -152,6 +152,10 @@ class SLL
         puts "List deleted"
     end
     
+    def nthNodeBack(pos)
+        return puts "Incorrect position!!!" if pos > size || pos < 1
+        puts "Value at #{pos} position from the back is  #{findNodeAtPos(size-(pos-1)).data}"
+    end
     private
 
     def inList? (val)
@@ -205,7 +209,8 @@ sll.printList
 puts
 # sll.deletePos(7)
 # sll.printList
-sll.deleteList
+# sll.deleteList
+sll.nthNodeBack(5)
 sll.printList
 # puts sll.size
 # sll.reverseIterative
