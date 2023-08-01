@@ -134,6 +134,18 @@ class SLL
         node.next = temp.next
     end
 
+    def deletePos(pos)
+        return puts "Invalid position!!!" if pos > size || pos < 1
+        return @head = @head.next if pos == 1
+        if pos == size
+            node = findNodeAtPos(size)
+        else
+            node = findNodeAtPos(pos-1)
+        end
+        temp = node.next
+        node.next = temp.next
+    end
+    
     private
 
     def inList? (val)
@@ -167,7 +179,6 @@ class SLL
         ctr = 1
         while ctr < pos - 1
             node = node.next
-            puts "\t#{ctr}"
             ctr += 1
         end
         return node
@@ -186,8 +197,9 @@ sll.insertEnd(11)
 sll.insertAt(5, 1)
 sll.printList
 puts
-sll.deleteVal(21)
+sll.deletePos(7)
 sll.printList
+# puts sll.size
 # sll.reverseIterative
 # puts
 # sll.printList
