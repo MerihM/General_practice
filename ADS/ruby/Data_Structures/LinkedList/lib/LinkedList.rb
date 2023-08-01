@@ -16,6 +16,7 @@ class SLL
     end
 
     def printList
+        return puts "List is empty!!!" if @head.nil?
         tempNode = @head
         while !tempNode.nil?
             p tempNode.data
@@ -145,6 +146,11 @@ class SLL
         temp = node.next
         node.next = temp.next
     end
+
+    def deleteList
+        deletePos(size) while size > 0
+        puts "List deleted"
+    end
     
     private
 
@@ -197,7 +203,9 @@ sll.insertEnd(11)
 sll.insertAt(5, 1)
 sll.printList
 puts
-sll.deletePos(7)
+# sll.deletePos(7)
+# sll.printList
+sll.deleteList
 sll.printList
 # puts sll.size
 # sll.reverseIterative
