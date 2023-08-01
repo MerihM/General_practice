@@ -124,6 +124,7 @@ class SLL
 
     def deleteVal(val)
 
+        return puts "Value is not part of the list" if !inList?(val)
         return @head = @head.next if @head.data == val
         node = @head
 
@@ -135,6 +136,14 @@ class SLL
 
     private
 
+    def inList? (val)
+        node = @head
+        while !node.nil? 
+            return true if node.data == val
+            node = node.next
+        end
+        return false
+    end
 
     def recHelper(node)
 
@@ -177,7 +186,7 @@ sll.insertEnd(11)
 sll.insertAt(5, 1)
 sll.printList
 puts
-sll.deleteVal(2)
+sll.deleteVal(21)
 sll.printList
 # sll.reverseIterative
 # puts
