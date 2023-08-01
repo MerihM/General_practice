@@ -122,6 +122,17 @@ class SLL
         @head = recHelper(@head)
     end
 
+    def deleteVal(val)
+
+        return @head = @head.next if @head.data == val
+        node = @head
+
+        node = node.next while !node.next.nil? && node.next.data != val
+
+        temp = node.next
+        node.next = temp.next
+    end
+
     private
 
 
@@ -134,22 +145,15 @@ class SLL
         node.next = nil
         return rest
     end
-    # node *rList(node *head)
-    # {
-    #     if (head == NULL || head->next == NULL)
-    #         return head;
-    #     node *rest = rList(head->next);
-    #     head->next->next = head;
-    #     head->next = NULL;
-    #     return rest;
-    # }
 
     def tail(node = @head)
+
         return node if node.next.nil?
         tail(node.next)
     end
 
     def findNodeAtPos(pos)
+
         node = @head
         ctr = 1
         while ctr < pos - 1
@@ -172,12 +176,15 @@ sll.insertEnd(11)
 # sll.printList
 sll.insertAt(5, 1)
 sll.printList
-sll.reverseIterative
 puts
+sll.deleteVal(2)
 sll.printList
-puts
-sll.reverseRec
-puts sll.printList
+# sll.reverseIterative
+# puts
+# sll.printList
+# puts
+# sll.reverseRec
+# puts sll.printList
 # puts sll.searchData(5)
 # puts sll.recSearchData(11)
 # puts sll.searchIndex(1)
