@@ -71,8 +71,17 @@ def is_blackjack(card_one, card_two):
     2.  'A' (ace card) = 11 (if already in hand)
     3.  '2' - '10' = numerical value.
     """
-
-    pass
+    s = 0
+    if card_two == 'A':
+        s = (11 + value_of_card(card_one))
+    elif card_one == 'A':
+        s = (11 + value_of_card(card_two))
+    else:
+        s = (value_of_card(card_one) + value_of_card(card_two))
+    
+    if s >= 21:
+        return True
+    return False
 
 
 def can_split_pairs(card_one, card_two):
