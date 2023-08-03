@@ -31,7 +31,6 @@ def make_word_groups(vocab_words):
 
     new.insert(0, vocab_words[0])
     return " :: ".join(new)
-    pass
 
 
 def remove_suffix_ness(word):
@@ -42,8 +41,10 @@ def remove_suffix_ness(word):
 
     For example: "heaviness" becomes "heavy", but "sadness" becomes "sad".
     """
-
-    pass
+    new = word.split('ness')[0]
+    if new[-1] == 'i':
+        new = new[:-1] + 'y'
+    return new
 
 
 def adjective_to_verb(sentence, index):
@@ -57,3 +58,6 @@ def adjective_to_verb(sentence, index):
     """
 
     pass
+
+
+print(remove_suffix_ness('heaviness'))
