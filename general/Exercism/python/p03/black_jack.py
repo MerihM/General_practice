@@ -15,7 +15,7 @@ def value_of_card(card):
     2.  'A' (ace card) = 1
     3.  '2' - '10' = numerical value.
     """
-    if card == 'K' or card == 'Q' or card == 'J':
+    if card == 'K' or card == 'Q' or card == 'J': #if card in ('JKQ') 
         return 10
     elif card == 'A':
         return 1
