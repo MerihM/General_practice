@@ -54,5 +54,7 @@ def clean_up(combined_record_group):
 
     (see HINTS.md for an example).
     """
-
-    pass
+    cleaned_string = ''
+    for record in combined_record_group:
+        cleaned_string += str(record[:1] + record[2:]) + "\n"
+    return cleaned_string
