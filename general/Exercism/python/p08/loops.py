@@ -53,8 +53,12 @@ def letter_grades(highest):
             71 <= "B" <= 85
             86 <= "A" <= 100
     """
+    numDif = round((highest - 41)/4)
+    thresholds = [41]
+    while len(thresholds) < 4:
+        thresholds.append(thresholds[len(thresholds)-1]+numDif)
+    return thresholds
 
-    pass
 
 
 def student_ranking(student_scores, student_names):
@@ -76,3 +80,5 @@ def perfect_score(student_info):
     """
 
     pass
+
+print(letter_grades(85))
