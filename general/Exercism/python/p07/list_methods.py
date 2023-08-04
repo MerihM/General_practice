@@ -25,7 +25,7 @@ def find_my_friend(queue, friend_name):
     :return: int - index at which the friends name was found.
     """
 
-    pass
+    return queue.index(friend_name)
 
 
 def add_me_with_my_friends(queue, index, person_name):
