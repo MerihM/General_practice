@@ -8,7 +8,9 @@ def round_scores(student_scores):
     :return: list - student scores *rounded* to nearest integer value.
     """
 
-    pass
+    for index, student in enumerate(student_scores):
+        student_scores[index] = round(student)
+    return student_scores
 
 
 def count_failed_students(student_scores):
@@ -68,3 +70,5 @@ def perfect_score(student_info):
     """
 
     pass
+
+print(round_scores([0.5]))
