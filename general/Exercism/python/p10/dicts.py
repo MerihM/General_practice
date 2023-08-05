@@ -7,8 +7,10 @@ def create_inventory(items):
     :param items: list - list of items to create an inventory from.
     :return: dict - the inventory dictionary.
     """
-
-    pass
+    ret_dict = {}
+    for item in items:
+        ret_dict[item] = items.count(item)
+    return ret_dict
 
 
 def add_items(inventory, items):
