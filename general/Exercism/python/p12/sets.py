@@ -36,7 +36,12 @@ def check_drinks(drink_name, drink_ingredients):
 
     """
 
-    pass
+    for ing in drink_ingredients:
+        if ing in ALCOHOLS:
+            drink_name += ' Cocktail'
+            return drink_name
+    drink_name += ' Mocktail'
+    return drink_name
 
 
 def categorize_dish(dish_name, dish_ingredients):
