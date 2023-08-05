@@ -37,7 +37,11 @@ def decrement_items(inventory, items):
     :return: dict - updated inventory with items decremented.
     """
 
-    pass
+    for item in items:
+        if inventory[item] == 0:
+            continue
+        inventory[item] -= 1
+    return inventory
 
 
 def remove_item(inventory, item):
