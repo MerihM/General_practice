@@ -48,4 +48,8 @@ def fix_wagon_depot(wagons_rows):
     :param wagons_rows: list[list[tuple]] - the list of rows of wagons.
     :return: list[list[tuple]] - list of rows of wagons.
     """
-    pass
+    a, b, c = wagons_rows
+    ret_arr = []
+    for i in range(0, 3):
+        ret_arr.append([a[i], b[i], c[i]])
+    return ret_arr
