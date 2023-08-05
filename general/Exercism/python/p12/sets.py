@@ -121,4 +121,5 @@ def singleton_ingredients(dishes, intersection):
 
     The function should return a `set` of ingredients that only appear in a single dish.
     """
-    pass
+    singletons = (dish - intersection for dish in dishes)
+    return set.union(*singletons)
