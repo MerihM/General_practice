@@ -22,14 +22,14 @@ def fix_list_of_wagons(each_wagons_id, missing_wagons):
     return[locomotive, *missing_wagons, *rest, one, two]
 
 
-def add_missing_stops():
+def add_missing_stops(route, stops): #in exercism stops should be **stops
     """Add missing stops to route dict.
 
     :param route: dict - the dict of routing information.
     :param: arbitrary number of stops.
     :return: dict - updated route dictionary.
     """
-    pass
+    return{**route, 'stops': list(stops.values())}
 
 
 def extend_route_information(route, more_route_information):
@@ -50,4 +50,4 @@ def fix_wagon_depot(wagons_rows):
     """
     pass
 
-print(fix_list_of_wagons([2, 5, 1, 7, 4, 12, 6, 3, 13], [3, 17, 6, 15]))
+print(add_missing_stops({'from': 'Berlin', 'to': 'Hamburg'}, {'stop_1': 'Lepzig', 'stop_2': 'Hannover', 'stop_3': 'Frankfurt'}))
