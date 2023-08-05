@@ -17,7 +17,9 @@ def fix_list_of_wagons(each_wagons_id, missing_wagons):
     :parm missing_wagons: list - the list of missing wagons.
     :return: list - list of wagons.
     """
-    pass
+
+    one, two, locomotive, *rest = each_wagons_id
+    return[locomotive, *missing_wagons, *rest, one, two]
 
 
 def add_missing_stops():
@@ -47,3 +49,5 @@ def fix_wagon_depot(wagons_rows):
     :return: list[list[tuple]] - list of rows of wagons.
     """
     pass
+
+print(fix_list_of_wagons([2, 5, 1, 7, 4, 12, 6, 3, 13], [3, 17, 6, 15]))
