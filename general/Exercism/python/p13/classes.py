@@ -38,10 +38,10 @@ class Alien:
 
     def collision_detection(self, obj):
         pass
-    
-    pass
+
+
 
 
 #TODO:  create the new_aliens_collection() function below to call your Alien class with a list of coordinates.
-def new_aliens_collection(x, y):
-    alien = Alien(x, y)
+def new_aliens_collection(positions):
+    return [Alien(x, y) for (x, y) in positions]
