@@ -24,6 +24,8 @@ class Alien:
         self.x_coordinate = x_coordinate
         self.y_coordinate = y_coordinate
         
+    def hit(self):
+        self.health -= 1
     pass
 
 
