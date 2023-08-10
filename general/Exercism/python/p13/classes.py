@@ -29,6 +29,10 @@ class Alien:
     
     def is_alive(self):
         return self.health > 0
+    
+    def teleport(self, x, y):
+        self.x_coordinate = x
+        self.y_coordinate = y
     pass
 
 
