@@ -18,11 +18,13 @@ class Alien:
     teleport(new_x_coordinate, new_y_coordinate): Move Alien object to new coordinates.
     collision_detection(other): Implementation TBD.
     """
-    health = 3
-    
+    total_aliens_created = 0
+
     def __init__(self, x_coordinate, y_coordinate):
         self.x_coordinate = x_coordinate
         self.y_coordinate = y_coordinate
+        self.health = 3
+        Alien.total_aliens_created += 1
         
     def hit(self):
         self.health -= 1
