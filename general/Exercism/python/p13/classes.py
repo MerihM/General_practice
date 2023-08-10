@@ -33,6 +33,10 @@ class Alien:
     def teleport(self, x, y):
         self.x_coordinate = x
         self.y_coordinate = y
+
+    def collision_detection(self, obj):
+        pass
+    
     pass
 
 
