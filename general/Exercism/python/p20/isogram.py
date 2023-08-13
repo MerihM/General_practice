@@ -8,3 +8,6 @@ def is_isogram(string):
             return False
         contains += l
     return True
+
+#string = string.lower().replace(' ', '').replace('-', '')
+#return len(string) == len(set(string))
