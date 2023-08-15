@@ -1,5 +1,9 @@
 def equilateral(sides):
-    pass
+    if isTriangle(sides):
+        a, b, c = sides
+        return (a == b) and (a == c)
+    return False
+
 
 
 def isosceles(sides):
